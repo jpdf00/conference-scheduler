@@ -1,0 +1,6 @@
+<%= form_for @lectures, url: import_lectures_path, html: { multipart: true } do |f| %>
+
+  <%= f.file_field :file %>
+  <%= f.submit %>
+
+<% end %>
