@@ -62,7 +62,7 @@ class LecturesController < ApplicationController
   end
 
   def import
-    p FileParsing.new(file: params[:lecture][:file]).parse
+    FileParsing.new(file: params[:lecture][:file]).parse
   end
 
 
