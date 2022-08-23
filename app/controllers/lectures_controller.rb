@@ -62,7 +62,8 @@ class LecturesController < ApplicationController
   end
 
   def import
-    FileParsing.new(file: params[:lecture][:file]).parse
+    lectures = FileParsing.new(file: params[:lecture][:file]).parse
+    ScheduleOrganizer.new(lectures: lectures).organize
   end
 
 
