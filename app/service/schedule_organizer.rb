@@ -3,7 +3,7 @@ class ScheduleOrganizer
     @lectures = lectures
     @lightning_lectures = lightning_lectures
     @lectures -= @lightning_lectures
-    @conference = Conference.create!({name: "Conference #{Time.now}"})
+    @conference = Conference.create!({name: "Conferência #{Time.now}"})
     @lunch = { title: 'Almoço', duration: 60 }
     @networking = { title: 'Evento de Networking', duration: 60 }
   end

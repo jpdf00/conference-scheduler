@@ -85,6 +85,6 @@ class LecturesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lecture_params
-      params.require(:lecture).permit(:title, :duration, :lecturer)
+      params.require(:lecture).permit(:title, :duration, :lecturer, :start_at, :track_id)
     end
 end
