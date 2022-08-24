@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "tracks/edit", type: :view do
+  let(:conference) {create(:conference)}
   before(:each) do
     @track = assign(:track, Track.create!(
       name: 1,
-      references: ""
+      conference_id: conference.id
     ))
   end
 
@@ -14,8 +15,6 @@ RSpec.describe "tracks/edit", type: :view do
     assert_select "form[action=?][method=?]", track_path(@track), "post" do
 
       assert_select "input[name=?]", "track[name]"
-
-      assert_select "input[name=?]", "track[references]"
     end
   end
 end

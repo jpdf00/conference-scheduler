@@ -5,4 +5,6 @@ class Track < ApplicationRecord
   has_many :lectures, dependent: :destroy
 
   accepts_nested_attributes_for :lectures
+
+  validates :name, presence: true
 end

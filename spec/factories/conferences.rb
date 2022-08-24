@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :conference do
-    name { "MyString" }
+    name { "Conferência" }
   end
 end

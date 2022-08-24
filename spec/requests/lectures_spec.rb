@@ -17,12 +17,14 @@ RSpec.describe "/lectures", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Lecture. As you add validations to Lecture, be sure to
   # adjust the attributes here as well.
+  let(:conference) { create(:conference) }
+  let(:track) { create(:track, conference_id: conference.id) }
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    attributes_for(:lecture, track_id: track.id)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {title: nil, start_at: nil, duration: nil}
   }
 
   describe "GET /index" do
@@ -79,7 +81,7 @@ RSpec.describe "/lectures", type: :request do
 
       it "renders a successful response (i.e. to display the 'new' template)" do
         post lectures_url, params: { lecture: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).not_to be_successful
       end
     end
   end
@@ -87,14 +89,14 @@ RSpec.describe "/lectures", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        attributes_for(:lecture, track_id: track.id, start_at: "10:00".to_time)
       }
 
       it "updates the requested lecture" do
         lecture = Lecture.create! valid_attributes
         patch lecture_url(lecture), params: { lecture: new_attributes }
         lecture.reload
-        skip("Add assertions for updated state")
+        expect(lecture.start_at).not_to eql(valid_attributes[:start_at])
       end
 
       it "redirects to the lecture" do
@@ -109,7 +111,7 @@ RSpec.describe "/lectures", type: :request do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         lecture = Lecture.create! valid_attributes
         patch lecture_url(lecture), params: { lecture: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).not_to be_successful
       end
     end
   end
@@ -126,6 +128,37 @@ RSpec.describe "/lectures", type: :request do
       lecture = Lecture.create! valid_attributes
       delete lecture_url(lecture)
       expect(response).to redirect_to(lectures_url)
+    end
+  end
+
+  describe "POST /lectures/import" do
+    before :each do
+      file = fixture_file_upload('conference_example.txt', 'text/plain')
+      @hash = {:lecture => {:file => file}}
+    end
+    
+    it "can upload a file" do
+      post import_lectures_path, params: @hash
+      conference = Conference.last
+      expect(response).to redirect_to(conference_url(conference))
+    end
+
+    it "can create a conference" do
+      expect {
+        post import_lectures_path, params: @hash
+      }.to change(Conference, :count).by(1)
+    end
+
+    it "can create tracks" do
+      expect {
+        post import_lectures_path, params: @hash
+      }.to change(Track, :count).by(2)
+    end
+
+    it "can create lectures" do
+      expect {
+        post import_lectures_path, params: @hash
+      }.to change(Lecture, :count).by(23)
     end
   end
 end
