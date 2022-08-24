@@ -1,4 +1,5 @@
 class LecturesController < ApplicationController
+  protect_from_forgery except: :import
   before_action :set_lecture, only: %i[ show edit update destroy ]
 
   # GET /lectures or /lectures.json
@@ -57,13 +58,22 @@ class LecturesController < ApplicationController
     end
   end
 
+  # GET /lectures/import/new or /lectures/import/new.json
   def new_import
     @lectures = Lecture.new
   end
 
+  # POST /lectures/import or /lectures/import.json
   def import
     lectures = FileParsing.new(file: params[:lecture][:file]).parse
-    ScheduleOrganizer.new(lectures: lectures).organize
+    conference_id = ScheduleOrganizer.new(lectures: lectures).organize
+
+    @conference = Conference.includes(:tracks => :lectures).where(id: conference_id).first
+
+    respond_to do |format|
+      format.json { render template: 'conferences/show', status: :ok, location: @conference }
+      format.html { redirect_to conference_url(@conference), notice: "File was successfully imported." }
+    end
   end
 
 
@@ -75,6 +85,6 @@ class LecturesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lecture_params
-      params.require(:lecture).permit(:title, :duration, :lecturer)
+      params.require(:lecture).permit(:title, :duration, :lecturer, :start_at, :track_id)
     end
 end

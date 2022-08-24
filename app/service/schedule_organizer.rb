@@ -3,7 +3,7 @@ class ScheduleOrganizer
     @lectures = lectures
     @lightning_lectures = lightning_lectures
     @lectures -= @lightning_lectures
-    @conference = Conference.create!({name: 'Conference'})
+    @conference = Conference.create!({name: "Conferência #{Time.now}"})
     @lunch = { title: 'Almoço', duration: 60 }
     @networking = { title: 'Evento de Networking', duration: 60 }
   end
@@ -15,6 +15,8 @@ class ScheduleOrganizer
       create_track(index)
       index += 1
     end
+
+    @conference.id
   end
 
   private
