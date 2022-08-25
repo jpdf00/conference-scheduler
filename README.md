@@ -108,10 +108,6 @@ Feel free to check the [issues page](https://github.com/jpdf00/conference-schedu
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-- Web-challenge proposed by [Stant](https://www.stant.com.br/)
-
 ## 📝 License
 
 This project is [MIT](./LICENSE) licensed.

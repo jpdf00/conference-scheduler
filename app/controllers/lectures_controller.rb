@@ -2,18 +2,8 @@ class LecturesController < ApplicationController
   protect_from_forgery except: :import
   before_action :set_lecture, only: %i[show edit update destroy]
 
-  # GET /lectures or /lectures.json
-  def index
-    @lectures = Lecture.all
-  end
-
   # GET /lectures/1 or /lectures/1.json
   def show; end
-
-  # GET /lectures/new
-  def new
-    @lecture = Lecture.new
-  end
 
   # GET /lectures/1/edit
   def edit; end
@@ -27,7 +17,7 @@ class LecturesController < ApplicationController
         format.html { redirect_to lecture_url(@lecture), notice: 'Lecture was successfully created.' }
         format.json { render :show, status: :created, location: @lecture }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to conferences_url, status: :unprocessable_entity }
         format.json { render json: @lecture.errors, status: :unprocessable_entity }
       end
     end
@@ -51,7 +41,7 @@ class LecturesController < ApplicationController
     @lecture.destroy
 
     respond_to do |format|
-      format.html { redirect_to lectures_url, notice: 'Lecture was successfully destroyed.' }
+      format.html { redirect_to track_url(@lecture.track), notice: 'Lecture was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

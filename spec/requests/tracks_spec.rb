@@ -26,33 +26,10 @@ RSpec.describe '/tracks', type: :request do
     { name: nil, conference_id: nil }
   end
 
-  describe 'GET /index' do
-    it 'renders a successful response' do
-      Track.create! valid_attributes
-      get tracks_url
-      expect(response).to be_successful
-    end
-  end
-
   describe 'GET /show' do
     it 'renders a successful response' do
       track = Track.create! valid_attributes
       get track_url(track)
-      expect(response).to be_successful
-    end
-  end
-
-  describe 'GET /new' do
-    it 'renders a successful response' do
-      get new_track_url
-      expect(response).to be_successful
-    end
-  end
-
-  describe 'GET /edit' do
-    it 'renders a successful response' do
-      track = Track.create! valid_attributes
-      get edit_track_url(track)
       expect(response).to be_successful
     end
   end
@@ -85,36 +62,6 @@ RSpec.describe '/tracks', type: :request do
     end
   end
 
-  describe 'PATCH /update' do
-    context 'with valid parameters' do
-      let(:new_attributes) do
-        { name: 2, conference_id: conference.id }
-      end
-
-      it 'updates the requested track' do
-        track = Track.create! valid_attributes
-        patch track_url(track), params: { track: new_attributes }
-        track.reload
-        expect(track.name).not_to eql(valid_attributes[:name])
-      end
-
-      it 'redirects to the track' do
-        track = Track.create! valid_attributes
-        patch track_url(track), params: { track: new_attributes }
-        track.reload
-        expect(response).to redirect_to(track_url(track))
-      end
-    end
-
-    context 'with invalid parameters' do
-      it "renders a successful response (i.e. to display the 'edit' template)" do
-        track = Track.create! valid_attributes
-        patch track_url(track), params: { track: invalid_attributes }
-        expect(response).not_to be_successful
-      end
-    end
-  end
-
   describe 'DELETE /destroy' do
     it 'destroys the requested track' do
       track = Track.create! valid_attributes
@@ -126,7 +73,7 @@ RSpec.describe '/tracks', type: :request do
     it 'redirects to the tracks list' do
       track = Track.create! valid_attributes
       delete track_url(track)
-      expect(response).to redirect_to(tracks_url)
+      expect(response).to redirect_to(conference_url(track.conference))
     end
   end
 end

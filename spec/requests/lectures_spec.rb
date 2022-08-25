@@ -26,25 +26,10 @@ RSpec.describe '/lectures', type: :request do
     { title: nil, start_at: nil, duration: nil }
   end
 
-  describe 'GET /index' do
-    it 'renders a successful response' do
-      Lecture.create! valid_attributes
-      get lectures_url
-      expect(response).to be_successful
-    end
-  end
-
   describe 'GET /show' do
     it 'renders a successful response' do
       lecture = Lecture.create! valid_attributes
       get lecture_url(lecture)
-      expect(response).to be_successful
-    end
-  end
-
-  describe 'GET /new' do
-    it 'renders a successful response' do
-      get new_lecture_url
       expect(response).to be_successful
     end
   end
@@ -126,7 +111,7 @@ RSpec.describe '/lectures', type: :request do
     it 'redirects to the lectures list' do
       lecture = Lecture.create! valid_attributes
       delete lecture_url(lecture)
-      expect(response).to redirect_to(lectures_url)
+      expect(response).to redirect_to(track_url(lecture.track))
     end
   end
 

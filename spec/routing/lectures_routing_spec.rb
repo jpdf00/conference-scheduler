@@ -2,14 +2,6 @@ require 'rails_helper'
 
 RSpec.describe LecturesController, type: :routing do
   describe 'routing' do
-    it 'routes to #index' do
-      expect(get: '/lectures').to route_to('lectures#index')
-    end
-
-    it 'routes to #new' do
-      expect(get: '/lectures/new').to route_to('lectures#new')
-    end
-
     it 'routes to #show' do
       expect(get: '/lectures/1').to route_to('lectures#show', id: '1')
     end
