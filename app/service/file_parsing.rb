@@ -5,7 +5,7 @@ class FileParsing
   end
 
   def parse
-    File.foreach( @file.path ).with_index do |line, index|
+    File.foreach(@file.path).with_index do |line, _index|
       parsed_line = {}
       parsed_line[:title] = line.match(/\D+/).to_s.strip
       parsed_line[:duration] = line.match?('lightning') ? 5 : line.match(/\d+/).to_s.to_i
@@ -15,5 +15,4 @@ class FileParsing
 
     @parsed_file
   end
-
 end

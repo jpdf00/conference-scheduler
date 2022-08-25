@@ -12,69 +12,68 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/conferences", type: :request do
-  
+RSpec.describe '/conferences', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Conference. As you add validations to Conference, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
+  let(:valid_attributes) do
     attributes_for(:conference)
-  }
+  end
 
-  let(:invalid_attributes) {
-    {name: nil}
-  }
+  let(:invalid_attributes) do
+    { name: nil }
+  end
 
-  describe "GET /index" do
-    it "renders a successful response" do
+  describe 'GET /index' do
+    it 'renders a successful response' do
       Conference.create! valid_attributes
       get conferences_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
+  describe 'GET /show' do
+    it 'renders a successful response' do
       conference = Conference.create! valid_attributes
       get conference_url(conference)
       expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
+  describe 'GET /new' do
+    it 'renders a successful response' do
       get new_conference_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
-    it "renders a successful response" do
+  describe 'GET /edit' do
+    it 'renders a successful response' do
       conference = Conference.create! valid_attributes
       get edit_conference_url(conference)
       expect(response).to be_successful
     end
   end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new Conference" do
-        expect {
+  describe 'POST /create' do
+    context 'with valid parameters' do
+      it 'creates a new Conference' do
+        expect do
           post conferences_url, params: { conference: valid_attributes }
-        }.to change(Conference, :count).by(1)
+        end.to change(Conference, :count).by(1)
       end
 
-      it "redirects to the created conference" do
+      it 'redirects to the created conference' do
         post conferences_url, params: { conference: valid_attributes }
         expect(response).to redirect_to(conference_url(Conference.last))
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new Conference" do
-        expect {
+    context 'with invalid parameters' do
+      it 'does not create a new Conference' do
+        expect do
           post conferences_url, params: { conference: invalid_attributes }
-        }.to change(Conference, :count).by(0)
+        end.to change(Conference, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
@@ -84,20 +83,20 @@ RSpec.describe "/conferences", type: :request do
     end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        {name: "Conference"}
-      }
+  describe 'PATCH /update' do
+    context 'with valid parameters' do
+      let(:new_attributes) do
+        { name: 'Conference' }
+      end
 
-      it "updates the requested conference" do
+      it 'updates the requested conference' do
         conference = Conference.create! valid_attributes
         patch conference_url(conference), params: { conference: new_attributes }
         conference.reload
         expect(conference.name).not_to eql(valid_attributes[:name])
       end
 
-      it "redirects to the conference" do
+      it 'redirects to the conference' do
         conference = Conference.create! valid_attributes
         patch conference_url(conference), params: { conference: new_attributes }
         conference.reload
@@ -105,7 +104,7 @@ RSpec.describe "/conferences", type: :request do
       end
     end
 
-    context "with invalid parameters" do
+    context 'with invalid parameters' do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         conference = Conference.create! valid_attributes
         patch conference_url(conference), params: { conference: invalid_attributes }
@@ -114,15 +113,15 @@ RSpec.describe "/conferences", type: :request do
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested conference" do
+  describe 'DELETE /destroy' do
+    it 'destroys the requested conference' do
       conference = Conference.create! valid_attributes
-      expect {
+      expect do
         delete conference_url(conference)
-      }.to change(Conference, :count).by(-1)
+      end.to change(Conference, :count).by(-1)
     end
 
-    it "redirects to the conferences list" do
+    it 'redirects to the conferences list' do
       conference = Conference.create! valid_attributes
       delete conference_url(conference)
       expect(response).to redirect_to(conferences_url)

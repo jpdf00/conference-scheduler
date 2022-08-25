@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :conference do
-    name { "Conferência" }
+    name { 'Conferência' }
   end
 end

@@ -1,1 +1,1 @@
-json.array! @conferences, partial: "conferences/conference", as: :conference
+json.array! @conferences, partial: 'conferences/conference', as: :conference
