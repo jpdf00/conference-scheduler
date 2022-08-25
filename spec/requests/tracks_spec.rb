@@ -17,12 +17,14 @@ RSpec.describe "/tracks", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Track. As you add validations to Track, be sure to
   # adjust the attributes here as well.
+  let(:conference) { create(:conference) }
+
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    attributes_for(:track, conference_id: conference.id)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { name: nil, conference_id: nil }
   }
 
   describe "GET /index" do
@@ -79,7 +81,7 @@ RSpec.describe "/tracks", type: :request do
 
       it "renders a successful response (i.e. to display the 'new' template)" do
         post tracks_url, params: { track: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).not_to be_successful
       end
     end
   end
@@ -87,14 +89,14 @@ RSpec.describe "/tracks", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: 2, conference_id: conference.id }
       }
 
       it "updates the requested track" do
         track = Track.create! valid_attributes
         patch track_url(track), params: { track: new_attributes }
         track.reload
-        skip("Add assertions for updated state")
+        expect(track.name).not_to eql(valid_attributes[:name])
       end
 
       it "redirects to the track" do
@@ -109,7 +111,7 @@ RSpec.describe "/tracks", type: :request do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         track = Track.create! valid_attributes
         patch track_url(track), params: { track: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).not_to be_successful
       end
     end
   end

@@ -1,5 +1,6 @@
 class TracksController < ApplicationController
   before_action :set_track, only: %i[ show edit update destroy ]
+  before_action :sanitize_params, only: %i[ create update ]
 
   # GET /tracks or /tracks.json
   def index
@@ -66,5 +67,9 @@ class TracksController < ApplicationController
     # Only allow a list of trusted parameters through.
     def track_params
       params.require(:track).permit(:name, :conference_id)
+    end
+
+    def sanitize_params
+      params[:track][:name] = params[:track][:name].to_i
     end
 end

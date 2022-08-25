@@ -18,11 +18,11 @@ RSpec.describe "/conferences", type: :request do
   # Conference. As you add validations to Conference, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    attributes_for(:conference)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {name: nil}
   }
 
   describe "GET /index" do
@@ -79,7 +79,7 @@ RSpec.describe "/conferences", type: :request do
 
       it "renders a successful response (i.e. to display the 'new' template)" do
         post conferences_url, params: { conference: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).not_to be_successful
       end
     end
   end
@@ -87,14 +87,14 @@ RSpec.describe "/conferences", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {name: "Conference"}
       }
 
       it "updates the requested conference" do
         conference = Conference.create! valid_attributes
         patch conference_url(conference), params: { conference: new_attributes }
         conference.reload
-        skip("Add assertions for updated state")
+        expect(conference.name).not_to eql(valid_attributes[:name])
       end
 
       it "redirects to the conference" do
@@ -109,7 +109,7 @@ RSpec.describe "/conferences", type: :request do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         conference = Conference.create! valid_attributes
         patch conference_url(conference), params: { conference: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).not_to be_successful
       end
     end
   end
