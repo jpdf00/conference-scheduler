@@ -1,22 +1,9 @@
 class TracksController < ApplicationController
-  before_action :set_track, only: %i[show edit update destroy]
-  before_action :sanitize_params, only: %i[create update]
-
-  # GET /tracks or /tracks.json
-  def index
-    @tracks = Track.all
-  end
+  before_action :set_track, only: %i[show destroy]
+  before_action :sanitize_params, only: %i[create]
 
   # GET /tracks/1 or /tracks/1.json
   def show; end
-
-  # GET /tracks/new
-  def new
-    @track = Track.new
-  end
-
-  # GET /tracks/1/edit
-  def edit; end
 
   # POST /tracks or /tracks.json
   def create
@@ -27,20 +14,7 @@ class TracksController < ApplicationController
         format.html { redirect_to track_url(@track), notice: 'Track was successfully created.' }
         format.json { render :show, status: :created, location: @track }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @track.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /tracks/1 or /tracks/1.json
-  def update
-    respond_to do |format|
-      if @track.update(track_params)
-        format.html { redirect_to track_url(@track), notice: 'Track was successfully updated.' }
-        format.json { render :show, status: :ok, location: @track }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { redirect_to conferences_url, status: :unprocessable_entity }
         format.json { render json: @track.errors, status: :unprocessable_entity }
       end
     end
