@@ -12,71 +12,70 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/lectures", type: :request do
-  
+RSpec.describe '/lectures', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Lecture. As you add validations to Lecture, be sure to
   # adjust the attributes here as well.
   let(:conference) { create(:conference) }
   let(:track) { create(:track, conference_id: conference.id) }
-  let(:valid_attributes) {
+  let(:valid_attributes) do
     attributes_for(:lecture, track_id: track.id)
-  }
+  end
 
-  let(:invalid_attributes) {
-    {title: nil, start_at: nil, duration: nil}
-  }
+  let(:invalid_attributes) do
+    { title: nil, start_at: nil, duration: nil }
+  end
 
-  describe "GET /index" do
-    it "renders a successful response" do
+  describe 'GET /index' do
+    it 'renders a successful response' do
       Lecture.create! valid_attributes
       get lectures_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
+  describe 'GET /show' do
+    it 'renders a successful response' do
       lecture = Lecture.create! valid_attributes
       get lecture_url(lecture)
       expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
+  describe 'GET /new' do
+    it 'renders a successful response' do
       get new_lecture_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
-    it "renders a successful response" do
+  describe 'GET /edit' do
+    it 'renders a successful response' do
       lecture = Lecture.create! valid_attributes
       get edit_lecture_url(lecture)
       expect(response).to be_successful
     end
   end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new Lecture" do
-        expect {
+  describe 'POST /create' do
+    context 'with valid parameters' do
+      it 'creates a new Lecture' do
+        expect do
           post lectures_url, params: { lecture: valid_attributes }
-        }.to change(Lecture, :count).by(1)
+        end.to change(Lecture, :count).by(1)
       end
 
-      it "redirects to the created lecture" do
+      it 'redirects to the created lecture' do
         post lectures_url, params: { lecture: valid_attributes }
         expect(response).to redirect_to(lecture_url(Lecture.last))
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new Lecture" do
-        expect {
+    context 'with invalid parameters' do
+      it 'does not create a new Lecture' do
+        expect do
           post lectures_url, params: { lecture: invalid_attributes }
-        }.to change(Lecture, :count).by(0)
+        end.to change(Lecture, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
@@ -86,20 +85,20 @@ RSpec.describe "/lectures", type: :request do
     end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        attributes_for(:lecture, track_id: track.id, start_at: "10:00".to_time)
-      }
+  describe 'PATCH /update' do
+    context 'with valid parameters' do
+      let(:new_attributes) do
+        attributes_for(:lecture, track_id: track.id, start_at: '10:00'.to_time)
+      end
 
-      it "updates the requested lecture" do
+      it 'updates the requested lecture' do
         lecture = Lecture.create! valid_attributes
         patch lecture_url(lecture), params: { lecture: new_attributes }
         lecture.reload
         expect(lecture.start_at).not_to eql(valid_attributes[:start_at])
       end
 
-      it "redirects to the lecture" do
+      it 'redirects to the lecture' do
         lecture = Lecture.create! valid_attributes
         patch lecture_url(lecture), params: { lecture: new_attributes }
         lecture.reload
@@ -107,7 +106,7 @@ RSpec.describe "/lectures", type: :request do
       end
     end
 
-    context "with invalid parameters" do
+    context 'with invalid parameters' do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         lecture = Lecture.create! valid_attributes
         patch lecture_url(lecture), params: { lecture: invalid_attributes }
@@ -116,49 +115,49 @@ RSpec.describe "/lectures", type: :request do
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested lecture" do
+  describe 'DELETE /destroy' do
+    it 'destroys the requested lecture' do
       lecture = Lecture.create! valid_attributes
-      expect {
+      expect do
         delete lecture_url(lecture)
-      }.to change(Lecture, :count).by(-1)
+      end.to change(Lecture, :count).by(-1)
     end
 
-    it "redirects to the lectures list" do
+    it 'redirects to the lectures list' do
       lecture = Lecture.create! valid_attributes
       delete lecture_url(lecture)
       expect(response).to redirect_to(lectures_url)
     end
   end
 
-  describe "POST /lectures/import" do
+  describe 'POST /lectures/import' do
     before :each do
       file = fixture_file_upload('conference_example.txt', 'text/plain')
-      @hash = {:lecture => {:file => file}}
+      @hash = { lecture: { file: file } }
     end
-    
-    it "can upload a file" do
+
+    it 'can upload a file' do
       post import_lectures_path, params: @hash
       conference = Conference.last
       expect(response).to redirect_to(conference_url(conference))
     end
 
-    it "can create a conference" do
-      expect {
+    it 'can create a conference' do
+      expect do
         post import_lectures_path, params: @hash
-      }.to change(Conference, :count).by(1)
+      end.to change(Conference, :count).by(1)
     end
 
-    it "can create tracks" do
-      expect {
+    it 'can create tracks' do
+      expect do
         post import_lectures_path, params: @hash
-      }.to change(Track, :count).by(2)
+      end.to change(Track, :count).by(2)
     end
 
-    it "can create lectures" do
-      expect {
+    it 'can create lectures' do
+      expect do
         post import_lectures_path, params: @hash
-      }.to change(Lecture, :count).by(23)
+      end.to change(Lecture, :count).by(23)
     end
   end
 end

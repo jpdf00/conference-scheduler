@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  root to: "conferences#index"
+  root to: 'conferences#index'
   resources :lectures do
     collection do
       get 'import/new', to: 'lectures#new_import'

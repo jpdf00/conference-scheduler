@@ -3,7 +3,7 @@ class ScheduleOrganizer
     @lectures = lectures
     @lightning_lectures = lightning_lectures
     @lectures -= @lightning_lectures
-    @conference = Conference.create!({name: "Conferência #{Time.now}"})
+    @conference = Conference.create!({ name: "Conferência #{Time.now}" })
     @lunch = { title: 'Almoço', duration: 60 }
     @networking = { title: 'Evento de Networking', duration: 60 }
   end
@@ -22,7 +22,7 @@ class ScheduleOrganizer
   private
 
   def create_track(index)
-    @track = @conference.tracks.new({name: index})
+    @track = @conference.tracks.new({ name: index })
     @next_start = '09:00'.to_time
 
     @time = 180
@@ -49,7 +49,7 @@ class ScheduleOrganizer
 
     limit_time = @time == 180 ? '12:00'.to_time : '17:00'.to_time
 
-    while @time > 0 && !instance_variable_get("@#{instance_variable}").empty?
+    while @time.positive? && !instance_variable_get("@#{instance_variable}").empty?
       lecture = find_lecture(instance_variable)
       return if @next_start + (lecture[:duration] * 60) > limit_time
 
@@ -59,8 +59,8 @@ class ScheduleOrganizer
   end
 
   def find_lecture(instance_variable)
-    index = instance_variable_get("@#{instance_variable}").index { |lecture| lecture[:duration] == @time} || 0
-    lecture = instance_variable_get("@#{instance_variable}")[index]
+    index = instance_variable_get("@#{instance_variable}").index { |lecture| lecture[:duration] == @time } || 0
+    instance_variable_get("@#{instance_variable}")[index]
   end
 
   def add_lecture_to_track(lecture)

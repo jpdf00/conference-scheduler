@@ -3,6 +3,8 @@
     "coverage": {
       "/home/jpdf00/personal-projects/conference_scheduler/spec/models/conference_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -13,6 +15,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/rails_helper.rb": {
         "lines": [
+          null,
+          null,
           null,
           1,
           1,
@@ -93,6 +97,8 @@
       "/home/jpdf00/personal-projects/conference_scheduler/config/environment.rb": {
         "lines": [
           null,
+          null,
+          null,
           1,
           null,
           null,
@@ -101,6 +107,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/config/application.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -128,6 +136,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/config/boot.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -136,6 +146,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/config/environments/test.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           null,
@@ -207,11 +219,14 @@
           null,
           null,
           null,
+          null,
           null
         ]
       },
       "/home/jpdf00/personal-projects/conference_scheduler/config/initializers/assets.rb": {
         "lines": [
+          null,
+          null,
           null,
           null,
           null,
@@ -230,6 +245,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/config/initializers/backtrace_silencers.rb": {
         "lines": [
+          null,
+          null,
           null,
           null,
           null,
@@ -271,6 +288,7 @@
           null,
           null,
           null,
+          null,
           null
         ]
       },
@@ -280,11 +298,15 @@
           null,
           null,
           null,
+          null,
+          null,
           1
         ]
       },
       "/home/jpdf00/personal-projects/conference_scheduler/config/initializers/filter_parameter_logging.rb": {
         "lines": [
+          null,
+          null,
           null,
           null,
           null,
@@ -310,6 +332,7 @@
           null,
           null,
           null,
+          null,
           null
         ]
       },
@@ -318,11 +341,13 @@
           null,
           null,
           null,
+          null,
           null
         ]
       },
       "/home/jpdf00/personal-projects/conference_scheduler/config/initializers/permissions_policy.rb": {
         "lines": [
+          null,
           null,
           null,
           null,
@@ -344,6 +369,8 @@
           null,
           null,
           null,
+          null,
+          null,
           1,
           2,
           null,
@@ -356,6 +383,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/factories/conferences.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           38,
@@ -365,6 +394,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/factories/lectures.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           13,
@@ -377,6 +408,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/factories/tracks.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           24,
@@ -386,6 +419,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/config/routes.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -402,30 +437,40 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/app/helpers/application_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/home/jpdf00/personal-projects/conference_scheduler/app/helpers/conferences_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/home/jpdf00/personal-projects/conference_scheduler/app/helpers/lectures_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/home/jpdf00/personal-projects/conference_scheduler/app/helpers/tracks_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/home/jpdf00/personal-projects/conference_scheduler/app/models/conference.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -435,6 +480,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/app/models/application_record.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null
@@ -442,6 +489,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/models/lecture_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -454,6 +503,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/app/models/lecture.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -465,6 +516,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/models/track_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -476,6 +529,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/app/models/track.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -490,22 +545,23 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/requests/conferences_spec.rb": {
         "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           null,
           1,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
           null,
           null,
           null,
@@ -625,22 +681,23 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/requests/lectures_spec.rb": {
         "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           null,
           1,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
           null,
           null,
           null,
@@ -768,7 +825,6 @@
           1,
           1,
           1,
-          1,
           null,
           null,
           1,
@@ -794,22 +850,23 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/requests/tracks_spec.rb": {
         "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           null,
           1,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
           null,
           null,
           null,
@@ -931,6 +988,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/routing/conferences_routing_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -949,7 +1008,6 @@
           null,
           1,
           1,
-          null,
           null,
           null,
           1,
@@ -973,17 +1031,10 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/app/controllers/conferences_controller.rb": {
         "lines": [
-          1,
-          1,
           null,
           null,
           1,
           1,
-          null,
-          null,
-          null,
-          1,
-          null,
           null,
           null,
           1,
@@ -993,6 +1044,13 @@
           null,
           1,
           null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
           null,
           null,
           1,
@@ -1033,6 +1091,7 @@
           null,
           null,
           1,
+          null,
           null,
           1,
           7,
@@ -1047,12 +1106,16 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/app/controllers/application_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/routing/lectures_routing_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1071,7 +1134,6 @@
           null,
           1,
           1,
-          null,
           null,
           null,
           1,
@@ -1095,18 +1157,11 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/app/controllers/lectures_controller.rb": {
         "lines": [
-          1,
-          1,
-          1,
           null,
           null,
           1,
           1,
-          null,
-          null,
-          null,
           1,
-          null,
           null,
           null,
           1,
@@ -1116,6 +1171,13 @@
           null,
           1,
           null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
           null,
           null,
           1,
@@ -1173,8 +1235,8 @@
           null,
           null,
           null,
-          null,
           1,
+          null,
           null,
           1,
           7,
@@ -1189,6 +1251,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/routing/tracks_routing_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1207,7 +1271,6 @@
           null,
           1,
           1,
-          null,
           null,
           null,
           1,
@@ -1231,18 +1294,11 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/app/controllers/tracks_controller.rb": {
         "lines": [
-          1,
-          1,
-          1,
           null,
           null,
           1,
           1,
-          null,
-          null,
-          null,
           1,
-          null,
           null,
           null,
           1,
@@ -1252,6 +1308,13 @@
           null,
           1,
           null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
           null,
           null,
           1,
@@ -1292,6 +1355,7 @@
           null,
           null,
           1,
+          null,
           null,
           1,
           7,
@@ -1310,6 +1374,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/views/conferences/edit.html.erb_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1323,7 +1389,6 @@
           1,
           null,
           1,
-          null,
           1,
           null,
           null,
@@ -1332,6 +1397,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/views/conferences/index.html.erb_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1355,6 +1422,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/views/conferences/new.html.erb_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1368,7 +1437,6 @@
           1,
           null,
           1,
-          null,
           1,
           null,
           null,
@@ -1377,6 +1445,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/views/conferences/show.html.erb_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1395,6 +1465,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/views/lectures/edit.html.erb_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1414,7 +1486,6 @@
           1,
           null,
           1,
-          null,
           1,
           null,
           1,
@@ -1427,6 +1498,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/views/lectures/index.html.erb_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1462,23 +1535,23 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/views/lectures/new.html.erb_spec.rb": {
         "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
           null,
           null,
           1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
           1,
           null,
           1,
-          null,
           1,
           null,
           1,
@@ -1493,6 +1566,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/views/lectures/show.html.erb_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1520,6 +1595,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/views/tracks/edit.html.erb_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1535,7 +1612,6 @@
           1,
           null,
           1,
-          null,
           1,
           null,
           null,
@@ -1544,6 +1620,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/views/tracks/index.html.erb_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1570,6 +1648,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/views/tracks/new.html.erb_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1585,7 +1665,6 @@
           1,
           null,
           1,
-          null,
           1,
           null,
           null,
@@ -1594,6 +1673,8 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/spec/views/tracks/show.html.erb_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1614,13 +1695,15 @@
       },
       "/home/jpdf00/personal-projects/conference_scheduler/app/service/file_parsing.rb": {
         "lines": [
-          1,
-          1,
-          4,
-          4,
           null,
           null,
           1,
+          1,
+          4,
+          4,
+          null,
+          null,
+          1,
           4,
           76,
           76,
@@ -1630,13 +1713,14 @@
           null,
           null,
           4,
-          null,
           null,
           null
         ]
       },
       "/home/jpdf00/personal-projects/conference_scheduler/app/service/schedule_organizer.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           4,
@@ -1712,6 +1796,6 @@
         ]
       }
     },
-    "timestamp": 1661374731
+    "timestamp": 1661422995
   }
 }
