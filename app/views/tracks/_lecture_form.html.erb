@@ -1,16 +1,4 @@
-<%= form_with(model: lecture) do |form| %>
-  <% if lecture.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(lecture.errors.count, "error") %> prohibited this lecture from being saved:</h2>
-
-      <ul>
-        <% lecture.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_with(url: '/lectures', method: :post, scope: :lecture) do |form| %>
   <div class="field">
     <%= form.label "Início" %>
     <%= form.time_field :start_at %>
@@ -31,7 +19,9 @@
     <%= form.text_field :lecturer %>
   </div>
 
+  <%= form.hidden_field :track_id, value: track.id %>
+
   <div class="actions">
-    <%= form.submit 'Salvar Palestra' %>
+    <%= form.submit 'Criar uma nova Palestra' %>
   </div>
 <% end %>
