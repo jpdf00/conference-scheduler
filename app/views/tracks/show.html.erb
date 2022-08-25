@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Track <%= @track.name %></strong>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Início</th>
+      <th>Palestra</th>
+      <th>Duração</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @track.lectures.each do |lecture| %>
+      <tr>
+        <td><%= lecture.start_at.to_formatted_s(:time) %></td>
+        <td><%= link_to lecture.title, lecture %></td>
+        <td><%= lecture.duration %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div>
+  <h2>Criar uma nova Palestra</h2>
+
+  <%= render 'lecture_form', track: @track %>
+</div>
+
+<%= 
+  link_to 'Deletar Track',
+  @track,
+  method: :delete,
+  data: { 
+    confirm: 'Você tem certeza? 
+    Essa Ação não poderá ser desfeita. 
+    Deletar uma Track também deletará todos os dados associados.' 
+  }
+%> |
+<%= link_to 'Voltar para Conferência', conference_path(@track.conference) %>

@@ -1,0 +1,27 @@
+<%= form_with(url: '/lectures', method: :post, scope: :lecture) do |form| %>
+  <div class="field">
+    <%= form.label "Início" %>
+    <%= form.time_field :start_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Palestra' %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Duração' %>
+    <%= form.number_field :duration %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Palestrante' %>
+    <%= form.text_field :lecturer %>
+  </div>
+
+  <%= form.hidden_field :track_id, value: track.id %>
+
+  <div class="actions">
+    <%= form.submit 'Criar uma nova Palestra' %>
+  </div>
+<% end %>

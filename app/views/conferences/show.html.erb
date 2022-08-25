@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @conference.name %></h1>
+
+<% @conference.tracks.each do |track| %>
+    <p><strong><%= link_to "Track #{track.name}", track %></strong></p>
+    <% track.lectures.each do |lecture| %>
+      <p>
+        <%= lecture.start_at.to_formatted_s(:time) %>
+        <%= link_to lecture.title, lecture %>
+        <%= lecture.duration %>min
+      </p>
+    <% end %>
+<% end %>
+
+<%= link_to 'Mudar nome da Conferência', edit_conference_path(@conference) %> |
+<%= 
+  link_to 'Deletar Conferência',
+  @conference,
+  method: :delete,
+  data: { 
+    confirm: 'Você tem certeza? 
+    Essa Ação não poderá ser desfeita. 
+    Deletar uma Conferência também deletará todos os dados associados.' 
+  }
+%> |
+<%= link_to 'Voltar pra todas as Conferências', conferences_path %>
+
+<%= render 'tracks/form', conference: @conference %>

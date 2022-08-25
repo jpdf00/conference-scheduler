@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Horário de Início:</strong>
+  <%= @lecture.start_at.to_formatted_s(:time) %>
+</p>
+
+<p>
+  <strong>Título:</strong>
+  <%= @lecture.title %>
+</p>
+
+<p>
+  <strong>Duração:</strong>
+  <%= @lecture.duration %>
+</p>
+
+<p>
+  <strong>Palestrante:</strong>
+  <%= @lecture.lecturer %>
+</p>
+
+<%= link_to 'Editar Palestra', edit_lecture_path(@lecture) %> |
+<%= 
+  link_to 'Deletar Palestra',
+  @lecture,
+  method: :delete,
+  data: { 
+    confirm: 'Você tem certeza? 
+    Essa Ação não poderá ser desfeita.' 
+  }
+%> |
+<%= link_to 'Voltar para Conferência', conference_path(@lecture.track.conference) %>

@@ -1,0 +1,9 @@
+<%= form_with(url: '/tracks', method: :post, scope: :track) do |form| %>
+
+  <%= form.hidden_field :name, value: conference.tracks.length %>
+  <%= form.hidden_field :conference_id, value: conference.id %>
+
+  <div class="actions">
+    <%= form.submit 'Criar uma nova Track' %>
+  </div>
+<% end %>
